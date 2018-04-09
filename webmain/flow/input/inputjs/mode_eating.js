@@ -23,7 +23,7 @@ function initbodys(){
 
 
 	var id =  $("input[name='id']").attr("value");
-	/** @squid 2018年4月8日17:58:39 设置是否可编辑 */
+	/** @squid 2018年4月8日17:58:39 设置不可编辑 */
 	$('input[name=applydt]').attr('onclick', '');
 	$('input[name=begin_date]').attr('onclick', '');
 	$('input[name=end_date]').attr('onclick', '');

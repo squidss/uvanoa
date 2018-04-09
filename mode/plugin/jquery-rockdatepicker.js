@@ -370,7 +370,7 @@
 			if(can.inputid!=''){
 				$('#'+can.inputid+'').val(v).focus();;
 			}else{
-				// @squid 当改变input的值的时候，触发其change事件
+				// @squid 2018年4月9日14:51:44 当改变input的值的时候，触发其change事件
 				obj.val(v).focus();;
 				obj.change();
 			}

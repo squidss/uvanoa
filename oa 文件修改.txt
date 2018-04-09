@@ -1,0 +1,78 @@
+1. 2018年3月21日14:32:28 js/js.js 添加注释
+
+2. 2018年3月22日10:22:54 flow/input/inputAction 添加注释，理解当中模型做了什么
+   2018年3月22日11:14:47 include/class/rockClass 添加注释，post方法是用来做啥的
+   2018年3月22日17:53:31 flow/input/inputAction 添加注释
+   
+3. 2018年3月23日09:16:57 分析 webmainAction.php里面的publicstore方法
+   2018年3月23日10:42:44 自己写了个一个用于解密publicstoreAjax的tablename_abc工具---oajm
+   
+4. 2018年3月25日09:46:48 增加model/flowModel.php里面关于方法initflow的说明
+   2018年3月25日17:07:47 添加方法yyoptmenuAjax注释，该方法的作用是操作菜单的具体操作，要自定义操作的话，需要写一个该表的模型类实现父类的接口方法，已经添加
+   2018年3月25日17:09:29 添加了一个model/eating.php 文件，里面用于测试操作菜单
+   
+5. 2018年3月26日09:32:34 在include/rockFun里面添加了一个方法，用于判断用户是否管理员
+   2018年3月26日14:09:37 在model/flow/flow.php 里面加入了注释
+   2018年3月26日14:35:42 在model/whereModel.php里面加入了方法的返回值说明
+   2018年3月26日14:39:46 在model/whereModel.php里面加入了方法的返回值说明
+   2018年3月26日16:48:22 在model/flow/leaveModel.php里面加入了对应的条件
+   2018年3月26日17:32:18 在flow/input/inputAction.php 里面添加了注释，解释luactions方法的作用
+   
+6. 2018年3月27日11:21:42 在we/ying/yingAction.php 里面加入了注释
+   2018年3月27日11:37:00 在we/ying/ying.js 里面加入注释，解释两个方法的作用
+   2018年3月27日13:40:58 在model/agent/agent.php 里面加入注释，解释getdata的使用
+   2018年3月27日14:37:50 在model/agent/agent.php 上面的zhaiyaoar上添加解释该方法的作用--格式化 “应用上摘要显示：” 在流程模块列表上面的具体模块上面编辑的
+   2018年3月27日14:59:21 在include/rockFunc.php 里面加入方法utf8dump
+   2018年3月27日15:22:39 在include/class/rockClass.php 里面加入方法reparr的注释
+   
+7. 2018年3月28日14:53:45 在model/inputModel.php 里面添加注释，解释getsubtable方法的用法
+   2018年3月28日16:33:46 在main/yingyong/rock_yingyong_menu.php里面加入了菜单类型一个选项{提示框}，用法是在url里面写'条件1|toast菜单名称1,条件2|toast菜单名称2...'，而且在编号当中填入你需要执行的动作
+   2018年3月28日16:33:46 在we/ying/ying.js 里面加入了一些关于toast提示框的方法
+   2018年3月28日17:23:42 在flow/input/inputjs/mode_eating.js里面加入了根据报餐初始化页面的代码
+   
+8. 2018年3月29日11:14:51 在we/ying/ying.js 在方法getfirstnum里面加入了一些代码用于判断查询条件
+   2018年3月29日11:16:48 在flow/input/tpl_input_lum.html 手机表单填写模板上加入了一些参数用于mode_eating.js初始化页面时使用
+   2018年3月29日11:18:56 在flow/input/inputjs/mode_eating 里面加入一个方法，生成一行子表的明天报餐详情
+   
+9. 2018年3月30日10:17:11 在flow/input/inputjs/input.js 加入了initbodys和savesuccess的方法怎么用
+   2018年3月30日10:38:52 在flow/input/inputjs/mode_eating.js 加入一段增加事件的操作
+   2018年3月30日12:05:11 在flow/input/inputjs/mode_eating.js 加入一段注释，定位设置表单元素是否可以编辑
+   2018年3月30日18:10:17 在model/agent/ 目录下新建一个模型类，用于移动端接口获得报餐的信息
+   
+10.	2018年4月2日09:23:28 在model/agent/ 加入一个eatingModel.php文件
+    2018年4月2日09:33:47 在we/ying/ying.js getdata方法里面计入一个判断(并加入一个显示的方法)，如果当前模块是eating的话，改变其数据的显示方式
+	2018年4月2日09:33:47 在we/ying/ying.js 里面加入一个判断，判断如果模块是eating的话，改变接口返回数据的显示样式
+	2018年4月2日10:28:21 在we/ying/ying.js 里面加入一个代码段，用于显示查询报餐数据的结果、全选checkbox、点击行选择
+	2018年4月2日14:39:01 在task/api/agentAction.php 加入方法 eatingAction，该方法是移动端ajax报餐的接口
+	2018年4月2日15:03:52 在model/flow/eatingModel.php 加入方法 declareEating，该方法是移动端报餐的具体逻辑 
+	2018年4月2日16:17:17 在model/flow/eatingModel.php 加入方法 getWeek，该方法用于获得周的日期，例如本周日期，下周日期
+	2018年4月2日16:44:19 在flow/input/inputAction.php 里面加入一个关于getsavenarr方法的注释
+	2018年4月2日17:42:48 在model/flow/flow.php 加入方法 initdata的注释
+	2018年4月2日19:19:49 在flow/input/inputAction.php 里面加入一个注释，解释新增表单是什么时候insert记录到bill里面的
+	
+11. 2018年4月3日09:05:48 include/Model.php 新增一个方法，用于指定表的getall查询
+	2018年4月3日09:40:00 model/flow/eatingModel.php 新增getUserEatingDate方法，用于获得用户的已经报餐的日期
+	2018年4月3日10:03:22 model/flow/eatingModel.php 新增getBillNo方法，返回一个新的bill_no
+	2018年4月3日11:37:11 include/Model.php 新增一个方法，自定义表record方法
+	2018年4月3日11:39:05 include/Model.php 新增一个方法，自定义表的insert方法
+	
+12. 2018年4月4日10:26:28 在main/yingyong/rock_yingyong_menu.php 加入了一个新的菜单类型，用于移动端点击菜单后直接发送AJAX请求操作
+	2018年4月4日10:49:57 在model/flow/eatingModel.php 根据ajax参数cancleId更新子表报餐字段的方法cancleEating
+	2018年4月4日09:40:56 在model/flow/flow.php 增加一些注释，解析方法loaddata的作用
+	2018年4月4日10:24:29 在we/ying/ying.js 增加一个判断，如果菜单类型为3(AJAX)的话，直接发送AJAX请求
+	2018年4月4日10:44:26 在we/ying/ying.js 增加一个方法，获得选择了的子表id
+	
+13. 2018年4月8日17:58:39 flow/input/inputjs/mode_eating.js 增加几个input不可编辑
+	2018年4月8日15:29:17 flow/input/mode_eatingAction.php 检查是否需要新加单据，如果不用，直接在这里返回一个成功信息，不让他走下面的保存单据流程
+	2018年4月8日11:19:45 flow/input/mode_eatingAction.php 处理子表数据(仿照getsubtabledata的方法)
+	2018年4月8日16:16:36 model/flow/eatingModel.php 如果类型是明天的话，并且dbDate已经有明天，则提示用户明天已经报餐
+	2018年4月8日09:48:04 model/flow/eatingModel.php 检查用户的报餐是否和数据库的报餐有重复
+	2018年4月8日14:22:51 model/flow/eatingModel.php 处理子表的更新问题
+	
+14. 2018年4月9日10:40:34 root/mode/plugin/jquery-rockdatepicker-mobile.js 在点击选择日期的确定按钮之后，触发input的change事件
+	2018年4月9日14:51:44 root/mode/plugin/jquery-rockdatepicker-mobile.js 当改变input的值的时候，触发其change事件  
+	2018年4月9日11:49:29 flow/input/inputjs/mode_eating.js 初始化第一个子表报餐日期的数值，默认为明天
+	2018年4月9日11:48:22 flow/input/inputjs/mode_eating.js 根据今天获得日期 
+	2018年4月9日09:41:09 flow/input/inputjs/mode_eating.js 为子表的报餐日期加上一个改变事件，发生改变的时候改变主表的开始和结束日期
+	2018年4月9日13:45:08 flow/input/inputjs/mode_eating.js 检查数组中是否有重复值
+	2018年4月9日09:05:11 model/flow/eatingModel.php 判断是否为取消报餐日期的前一天21:00  
