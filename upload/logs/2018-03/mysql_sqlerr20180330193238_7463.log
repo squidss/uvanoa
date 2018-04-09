@@ -1,0 +1,14 @@
+【错误SQL】
+SELECT a.modeid = 78 AND a.uid = 1 FROM xinhu_eating WHERE `xinhu_flow_bill` a LEFT JOIN `xinhu_eating` b ON a.mid = b.id LEFT JOIN `xinhu_eatingitem` c ON b.id = c.mid ORDER BY a.id AS bill_id, a.sericnum AS sericnum, a.uname AS user_name, a.optdt AS optdt, b.id AS eating_id, b.bill_type AS bill_type, c.eatingdate AS eatingdate, c.lunch AS lunch, c.dinner AS dinner
+
+【原因】
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a LEFT JOIN `xinhu_eating` b ON a.mid = b.id LEFT JOIN `xinhu_eatingitem` c ON b' at line 1
+
+【URL】
+http://localhost/newxinhu/api.php?m=index&a=getyydata&adminid=1&cfrom=mweb&page=1&event=def&num=eating&key=
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1

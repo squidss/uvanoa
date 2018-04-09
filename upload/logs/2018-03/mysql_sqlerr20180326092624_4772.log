@@ -1,0 +1,14 @@
+【错误SQL】
+SELECT count(1) FROM xinhu_flow
+
+【原因】
+Table 'newxinhu.xinhu_flow' doesn't exist
+
+【URL】
+http://localhost/newxinhu/task.php?a=p&num=eating&mid=4&callback=opegs1522027567151_1064
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

@@ -1,0 +1,18 @@
+【错误SQL】
+insert into `newxinhu_eatingitem` set `lunch`='1',`dinner`='1',`mid`='28',`eatingdate`='2018-04-13',`sort`='0'
+
+【原因】
+Table 'newxinhu.newxinhu_eatingitem' doesn't exist
+
+【URL】
+http://localhost/newxinhu/api.php?m=agent&a=eating&adminid=1&cfrom=mweb
+
+【POST】
+[menuNum]：next_week
+[str]：all
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1

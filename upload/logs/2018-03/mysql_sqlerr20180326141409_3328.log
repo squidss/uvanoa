@@ -1,0 +1,30 @@
+【错误SQL】
+SELECT count(1) FROM xinhu_7 WHERE 1=1 and `setid`=-1
+
+【原因】
+Table 'newxinhu.xinhu_7' doesn't exist
+
+【URL】
+http://localhost/newxinhu/index.php?a=publicstore&m=flow&d=main&ajaxbool=true&rnd=762605
+
+【POST】
+[tablename_abc]：pg0hgp0hig0hho0hgg0kp0ln0hhm0pg0on0lj0kp06
+[defaultorder]：
+[keywhere]：
+[where]：
+[sort]：sort
+[dir]：asc
+[loadci]：1
+[storebeforeaction]：flowmenubefore
+[storeafteraction]：flowmenuafter
+[modenum]：
+[start]：0
+[page]：1
+[limit]：0
+[mid]：-1
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

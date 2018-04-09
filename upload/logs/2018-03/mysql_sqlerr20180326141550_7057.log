@@ -1,0 +1,29 @@
+【错误SQL】
+select * from xinhu_ where 1=1      order by  id desc    limit 0,15
+
+【原因】
+Table 'newxinhu.xinhu_' doesn't exist
+
+【URL】
+http://localhost/newxinhu/index.php?a=publicstore&m=view&d=main&ajaxbool=true&rnd=518776
+
+【POST】
+[tablename_abc]：md0edm0efd0eel0edd0hm0ik0edl0ede0kf0lf0edl0ml0eed0le0il03
+[defaultorder]：
+[keywhere]：
+[where]：
+[sort]：id
+[dir]：desc
+[loadci]：1
+[storebeforeaction]：
+[storeafteraction]：afterstroesss
+[modenum]：
+[start]：0
+[page]：1
+[limit]：15
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

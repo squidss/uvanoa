@@ -1,0 +1,29 @@
+【错误SQL】
+SELECT count(1) FROM xinhu_ WHERE 1=1
+
+【原因】
+Table 'newxinhu.xinhu_' doesn't exist
+
+【URL】
+http://localhost/newxinhu/index.php?a=publicstore&m=flow&d=main&ajaxbool=true&rnd=530087
+
+【POST】
+[tablename_abc]：0000000000004
+[defaultorder]：`sort`
+[keywhere]：
+[where]：0000000000000000000000000000000000002
+[sort]：
+[dir]：
+[loadci]：1
+[storebeforeaction]：
+[storeafteraction]：setcourselistafter
+[modenum]：
+[start]：0
+[page]：1
+[limit]：0
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

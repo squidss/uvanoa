@@ -1,0 +1,18 @@
+【错误SQL】
+SELECT c.id AS sub_id, c.eatingdate AS eating_date FROM `xinhu_flow_bill` a LEFT JOIN `xinhu_eating` b ON a.mid = b.id LEFT JOIN `xinhu_eatingitem` c ON b.id = c.mid WHERE b.optid = 1 AND a.modeid =  AND c.eatingdate > '2018-04-03'
+
+【原因】
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND c.eatingdate > '2018-04-03'' at line 1
+
+【URL】
+http://localhost/newxinhu/api.php?m=agent&a=eating&adminid=1&cfrom=mweb
+
+【POST】
+[menuNum]：next_week
+[str]：lunch
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1

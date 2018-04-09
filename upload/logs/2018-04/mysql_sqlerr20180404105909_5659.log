@@ -1,0 +1,18 @@
+【错误SQL】
+update `xinhu_eatingitem` set  where id IN (69,70)
+
+【原因】
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id IN (69,70)' at line 1
+
+【URL】
+http://localhost/newxinhu/api.php?m=agent&a=eating&adminid=1&cfrom=mweb
+
+【POST】
+[sqAction]：cancle
+[cancleId]：69,70
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1

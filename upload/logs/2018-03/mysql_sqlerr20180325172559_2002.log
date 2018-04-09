@@ -1,0 +1,30 @@
+【错误SQL】
+update `xinhu_eating` set `stauts`='1' where `id`='4'
+
+【原因】
+Unknown column 'stauts' in 'field list'
+
+【URL】
+http://localhost/newxinhu/index.php?a=yyoptmenu&m=flowopt&d=flow&ajaxbool=true&rnd=92214
+
+【POST】
+[name]：通过报餐
+[statusvalue]：1
+[islog]：1
+[issm]：0
+[lx]：1
+[optnum]：complete_eat
+[optmenuid]：39
+[color]：green
+[num]：eating
+[mid]：4
+[modenum]：eating
+[smcont]：
+[logfileid]：
+[sm]：
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

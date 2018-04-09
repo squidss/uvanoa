@@ -1,0 +1,118 @@
+<!--
+<table style="width:100%;" cellpadding="2" cellspacing="0" border="0" bordercolor="#000000"><tbody><tr><td>*单据类型<br /></td><td>{BillType}<br /></td><td>*单据编码<br /></td><td>{BillNo}<br /></td></tr><tr><td>*员工<br /></td><td>{optname}<br /></td><td>*委托人<br /></td><td>{entrustname}<br /></td></tr><tr><td>*受托人<br /></td><td>{trusteename}<br /></td><td>*开始日期<br /></td><td>{begindate}<br /></td></tr><tr><td>*结束日期<br /></td><td>{enddate}<br /></td><td>*申请日期<br /></td><td>{applydt}<br /></td></tr></tbody></table><br />
+
+
+<input id="add" style="" type="button" onclick="c.addrow(this,0)" value="新增" class="webbtn">&nbsp;
+<input id="copy" style="" type="button" onclick="c.copyrow(this,0)" value="递增复制" class="webbtn">&nbsp;
+<select>
+	<option>报本周</option>
+	<option>报下周</option>
+</select>
+<input id="cancellunnch" style="" type="button" onclick="c.addrow(this,0)" value="取消午餐" class="webbtn">&nbsp;
+<input id="canceldinner" style="" type="button" onclick="c.addrow(this,0)" value="取消中餐" class="webbtn">&nbsp;
+<table width="100%" bordercolor="#000000" border="0" class="ke-zeroborder" style="border-collapse:collapse;"><tbody><tr><td class="ys2" colspan="4" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;background-color:#CCCCCC;"><strong>报餐明细</strong></td></tr><tr><td class="ys0" colspan="4" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;"><table class="tablesub ke-zeroborder" id="tablesub0" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:635px;"><tbody><tr><td width="10%" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">序号</td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">*报餐日期<br /></td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">*中餐<br /></td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">*晚餐<br /></td><td width="5%" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">操作</td></tr><tr><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">[xuhao0,0]</td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">[eatingdate0,0]<br /></td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">[lunch0,0]</td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">[dinner0,0]<br /></td><td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">{删,0}</td></tr></tbody></table></td></tr></tbody></table>
+
+<div><br /></div><br />
+
+-->
+
+<table style="width:100%;" cellpadding="2" cellspacing="0" border="0" bordercolor="#000000">
+  <tbody>
+    <tr>
+      <td style="">*单据类型
+        <br /></td>
+      <td>{bill_type}
+        <br /></td>
+         <td>委托人
+        <br /></td>
+      <td>{entrust_name}
+        <br /></td>
+    </tr>
+    <tr>
+       <td>*单据编码
+        <br /></td>
+      <td>{bill_no}
+        <br /></td>
+       <td>*受托人
+        <br /></td>
+      <td>{trustee_name}
+        <br /></td>
+    </tr>
+    <tr>
+       <td>*申请日期
+        <br /></td>
+      <td>{applydt}
+        <br /></td>
+      <td>开始日期
+        <br /></td>
+      <td>{begin_date}
+        <br /></td>
+    </tr>
+    <tr>
+       <td>*员工
+        <br /></td>
+      <td>{optname}
+        <br /></td>
+      <td>结束日期
+        <br /></td>
+      <td>{end_date}
+        <br /></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<!--明细信息-->
+<input id="add" style="" type="button" onclick="c.addrow(this,0)" value="新增" class="webbtn">&nbsp;
+<input id="copy" style="" type="button" onclick="copyRow('tablesub0')" value="递增复制" class="webbtn">&nbsp;
+<!--<input id="copy" style="" type="button" onclick="addrow(this，0)" value="递增复制" class="webbtn">&nbsp;-->
+
+<!--<select>
+  <option onclick="CurrentWeek();">报本周</option>
+  <option>报下周</option></select>
+-->
+<input id="currentweek" style="" type="button" onclick="CurrentWeek('tablesub0');" value="报本周" class="webbtn">&nbsp;
+<input id="nextweek" style="" type="button" onclick="nextWeek('tablesub0');" value="报下周" class="webbtn">&nbsp;
+
+<input id="cancellunnch" style="" type="button" onclick="CancelLunch();" value="取消午餐" class="webbtn">&nbsp;
+<input id="canceldinner" style="" type="button" onclick="CancelDinner();" value="取消晚餐" class="webbtn">&nbsp;
+<table width="100%" bordercolor="#000000" border="0" class="" style="border-collapse:collapse;">
+  <tbody>
+    <tr>
+      <td class="ys2" colspan="4" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;background-color:#CCCCCC;">
+        <strong>报餐明细</strong></td>
+    </tr>
+    <tr>
+      <td class="ys0" colspan="4" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:1px dotted #AAAAAA;">
+        <table class="tablesub ke-zeroborder" id="tablesub0" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:635px;" >
+          <tbody>
+            <tr>
+              <td width="10%" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">序号</td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">*报餐日期
+                <br /></td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">*中餐
+                <br /></td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">*晚餐
+                <br /></td>
+              <td width="5%" style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">操作</td></tr>
+            <tr>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">[xuhao0,0]
+                <!--<input type="checkbox" hidden value="true">-->
+              </td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">[eatingdate0,0]
+                <br /></td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">[lunch0,0]</td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">[dinner0,0]
+                <br /></td>
+              <td style="font-style:normal;font-weight:normal;font-size:12px;font-family:&quot;border:0px dotted #AAAAAA;">{删,0}  
+                </td> 
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--<p><span style="background-color:#F1F1F1;">{新增,0}</span></p>-->
+<div>
+  <br /></div>
+<br />

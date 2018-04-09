@@ -1,0 +1,29 @@
+【错误SQL】
+SELECT count(1) FROM xinhu_ WHERE 1=1  0��e
+
+【原因】
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0??e' at line 1
+
+【URL】
+http://localhost/newxinhu/index.php?a=publicstore&m=view&d=main&ajaxbool=true&rnd=518776
+
+【POST】
+[tablename_abc]：md0edm0efd0eel0edd0hm0ik0edl0ede0kf0lf0edl0ml0eed0le0il03
+[defaultorder]：
+[keywhere]：
+[where]：op0on0lj0hgn0nj0nh0kp0hho0pg0nh0om0hhi0pg0mo0ko0lh0no0hhp0lo0lo06
+[sort]：id
+[dir]：desc
+[loadci]：2
+[storebeforeaction]：
+[storeafteraction]：afterstroesss
+[modenum]：
+[start]：0
+[page]：1
+[limit]：15
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36

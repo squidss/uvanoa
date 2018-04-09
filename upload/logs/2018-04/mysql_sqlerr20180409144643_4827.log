@@ -1,0 +1,19 @@
+【错误SQL】
+insert into `xinhu_sjoin` (`type`,`mid`,`sid`,`indate`) select 'mg','140',`id`,'2018-04-09 14:46:42' from `xinhu_group` where `id` in()
+
+【原因】
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+【URL】
+http://localhost/newxinhu/index.php?a=save&m=extent&d=system&ajaxbool=true&rnd=322587
+
+【POST】
+[type]：mg
+[mid]：140
+[checkaid]：
+
+【IP】
+::1
+
+【浏览器】
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36
