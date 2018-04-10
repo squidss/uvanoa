@@ -461,6 +461,8 @@ var myScroll=false,yy={
 		yy.regetdata(get('showblankss'),yy.nowpage+1);
 	},
 
+	hasOpenToast: false, // @squid 2018年4月10日09:10:21 对象yy的属性，用于管理是否有打开过sq_toast
+
 	/**
 	 * @squid 2018年3月28日16:33:46
 	 * 点击菜单之后打开toast
@@ -470,8 +472,7 @@ var myScroll=false,yy={
 			toastWidth = winSize.width * 0.9,
 			left = (winSize.width - toastWidth) / 2,
 			top  = (winSize.height / 2) - 60,
-			liContent = '';
-			
+			liContent = '';  // li的内容，在这里先定义了
 
 		if (menu.url.indexOf(',') > 0) {
 			var toastUrl = menu.url.split(','),
@@ -487,27 +488,38 @@ var myScroll=false,yy={
 			// console.log(toastUrl);
 		}
 		
-		var toastStyle    =  '<style>' +
-							'	ul {margin: 0 0; padding: 0 0;}' +
-							'	div.toast_title {border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid #ccc;}'+
-							'	ul>li {list-style-type: none; float: left; text-align: center;}' +
-							'	ul>li:first-child {border-bottom-left-radius: 5px;}' +
-							'	ul>li:last-child {border-bottom-right-radius: 5px;}' +
+		// toastStyle 放到css 里面方便统一管理吧
+		var toastStyle    =  '<style>\n' +
+							'	.sq_toast_mask {position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: #7b7979b8; z-index: 998;}\n' +
+							'	.sq_toast {position: absolute; width: 90%; border-radius: 5px; margin: auto; left: ' + left + 'px; top: ' + top + 'px; background: #337ab7;}\n' +
+							'	.sq_toast_title {text-align: center; letter-space: 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid #ccc; height: 30px; line-height: 30px; color: white;}\n' +
+							'	ul {margin: 0 0; padding: 0 0;}\n' +
+							'	ul>li {list-style-type: none; float: left; text-align: center;height: 40px; line-height: 40px; color: white;}\n' +
+							'	ul>li:first-child {border-bottom-left-radius: 5px;}\n' +
+							'	ul>li:last-child {border-bottom-right-radius: 5px;}\n' +
 							'</style>',
-			toastStartDiv = '<div class="sq_toast" style="position: absolute; width: 90%; border-radius: 5px; margin: auto; left: ' + left + 'px; top: ' + top + 'px; background: #10aeff;">',
+			toastMask     = '<div class="sq_toast_mask">',
+			toastMaskEnd  = '</div>',
+			toastStartDiv = '<div class="sq_toast">',
 			toastEndDiv   = '</end>',
 			ulStart       = '<ul style="width: 100%;">',
 			ulEnd         = '</ul>',
 			closeLi       = '<li style="width: ' + liWidth + 'px;" onclick="yy.closeToast();">关闭</li>'
 		
-		var toastTitle = '<div class="toast_title" style="text-align: center;">请选择' + menu.name + '的类型</div>';
+		var toastTitle = '<div class="sq_toast_title">请选择' + menu.name + '的类型</div>';
 
-		var toast = toastStyle + toastStartDiv + toastTitle + ulStart + liContent + closeLi + ulEnd + toastEndDiv;
+		var toast = '';
+		if (!yy.hasOpenToast) {
+			toast = toastStyle + toastMask + toastStartDiv + toastTitle + ulStart + liContent + closeLi + ulEnd + toastEndDiv + toastMaskEnd;
+			yy.hasOpenToast = true; // 改变属性，已经打开过toast
+		} else {
+			toast = toastMask + toastStartDiv + toastTitle + ulStart + liContent + closeLi + ulEnd + toastEndDiv + toastMaskEnd;
+		}
 		$('body').append(toast);
 
 	},
 	closeToast: function() {
-		$('.sq_toast').remove();
+		$('.sq_toast_mask').remove();
 	},
 	clickToastMenu: function(menuNum, str) {
 		if(menuNum == '') {
