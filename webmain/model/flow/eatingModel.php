@@ -49,6 +49,30 @@ class flow_eatingClassModel extends flowModel
     	);
     }
     
+    /**
+     * @squid 2018年4月10日16:42:17 复写flowrsreplace方法，返回一个带有子表数据的数据到主表记录里面
+     * {@inheritDoc}
+     * @see flowModel::flowrsreplace()
+     */
+    public function flowrsreplace($rs) {
+    	// utf8dump($rs); //
+    	// @squid 2018年4月10日15:14:02 为每张单据添加子表的详细信息
+    	$eatingId = $rs['id'];
+    	$table  = 'xinhu_eatingitem';
+    	$where  = 'mid = ' . $eatingId;
+    	$fields = 'id, eatingdate, lunch, dinner';
+    	$subDate = $this->db->getrows($table, $where, $fields, 'sort');
+    	$eatingdate = '<table style="width: 100%;"><tr style="border-bottom: 1px solid #CCC;"><th>日期</th><th>午餐</th><th>晚餐</th></tr>';
+    	foreach ($subDate as $k => $v) {
+    		$eatingdate .= '<tr><td>' . $v['eatingdate'] . '</td>';
+    		$eatingdate .= '<td>' . ($v['lunch']  == 1 ? '是' : '否') . '</td>';
+    		$eatingdate .= '<td>' . ($v['dinner'] == 1 ? '是' : '否') . '</td></tr>';
+    	}
+    	$eatingdate .= '</table>';
+    	$rs['subdate'] = $eatingdate;
+    	return $rs;
+    }
+    
     // 判断是否有权限查看模块，如果有需要就在这里实现方法
 //     protected function flowisreadqx() {
 //         $result = isAdmin($this->adminid);

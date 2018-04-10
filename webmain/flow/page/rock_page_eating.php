@@ -11,7 +11,8 @@ $(document).ready(function(){
 	{params}
 	var modenum = 'eating',modename='报餐',isflow=1,modeid='78',atype = params.atype,pnum=params.pnum;
 	if(!atype)atype='';if(!pnum)pnum='';
-	var fieldsarr = [{"name":"\u7533\u8bf7\u4eba","fields":"base_name"},{"name":"\u7533\u8bf7\u4eba\u90e8\u95e8","fields":"base_deptname"},{"name":"\u5355\u53f7","fields":"sericnum"},{"fields":"bill_type","name":"\u62a5\u9910\u7c7b\u578b","fieldstype":"select","ispx":"0","isalign":"0","islb":"1"},{"fields":"bill_no","name":"\u62a5\u9910\u5355\u7f16\u53f7","fieldstype":"num","ispx":"0","isalign":"0","islb":"0"},{"fields":"applydt","name":"\u7533\u8bf7\u65e5\u671f","fieldstype":"datetime","ispx":"0","isalign":"0","islb":"1"},{"fields":"optname","name":"\u64cd\u4f5c\u4eba","fieldstype":"text","ispx":"0","isalign":"0","islb":"1"},{"fields":"entrust_name","name":"\u59d4\u6258\u4eba\u59d3\u540d","fieldstype":"text","ispx":"0","isalign":"0","islb":"1"},{"fields":"trustee_name","name":"\u53d7\u6258\u4eba","fieldstype":"text","ispx":"0","isalign":"0","islb":"1"},{"fields":"begin_date","name":"\u5f00\u59cb\u65e5\u671f","fieldstype":"date","ispx":"0","isalign":"0","islb":"0"},{"fields":"end_date","name":"\u7ed3\u675f\u65e5\u671f","fieldstype":"date","ispx":"0","isalign":"0","islb":"0"}],fieldsselarr= [];
+	// @squid 2018年4月10日16:23:08 下面加入本字符串 {"name":"\u62a5\u9910\u660e\u7ec6", "fields":"subdate"}, 和 subdate,
+	var fieldsarr = [{"name":"\u7533\u8bf7\u4eba","fields":"base_name"},{"name":"\u7533\u8bf7\u4eba\u90e8\u95e8","fields":"base_deptname"},{"name":"\u5355\u53f7","fields":"sericnum"},{"fields":"bill_type","name":"\u62a5\u9910\u7c7b\u578b","fieldstype":"select","ispx":"0","isalign":"0","islb":"1"},{"fields":"bill_no","name":"\u62a5\u9910\u5355\u7f16\u53f7","fieldstype":"num","ispx":"0","isalign":"0","islb":"0"},{"fields":"applydt","name":"\u7533\u8bf7\u65e5\u671f","fieldstype":"datetime","ispx":"0","isalign":"0","islb":"1"},{"fields":"optname","name":"\u64cd\u4f5c\u4eba","fieldstype":"text","ispx":"0","isalign":"0","islb":"1"},{"fields":"entrust_name","name":"\u59d4\u6258\u4eba\u59d3\u540d","fieldstype":"text","ispx":"0","isalign":"0","islb":"0"},{"fields":"trustee_name","name":"\u53d7\u6258\u4eba","fieldstype":"text","ispx":"0","isalign":"0","islb":"0"},{"name":"\u62a5\u9910\u660e\u7ec6", "fields":"subdate"},{"fields":"begin_date","name":"\u5f00\u59cb\u65e5\u671f","fieldstype":"date","ispx":"0","isalign":"0","islb":"0"},{"fields":"end_date","name":"\u7ed3\u675f\u65e5\u671f","fieldstype":"date","ispx":"0","isalign":"0","islb":"0"}],fieldsselarr= {"columns_eating_":"base_name,base_deptname,bill_type,applydt,subdate,optname,caozuo"};
 	
 	var c = {
 		reload:function(){
@@ -194,7 +195,8 @@ $(document).ready(function(){
 		fanye:true,modenum:modenum,modename:modename,statuschange:false,tablename:jm.base64decode('ZWF0aW5n'),
 		url:c.storeurl(),storeafteraction:'storeaftershow',storebeforeaction:'storebeforeshow',
 		params:{atype:atype},
-		columns:[{text:"申请人",dataIndex:"base_name",sortable:true},{text:"申请人部门",dataIndex:"base_deptname",sortable:true},{text:"单号",dataIndex:"sericnum"},{text:"报餐类型",dataIndex:"bill_type"},{text:"申请日期",dataIndex:"applydt"},{text:"操作人",dataIndex:"optname"},{text:"委托人姓名",dataIndex:"entrust_name"},{text:"受托人",dataIndex:"trustee_name"},{text:"状态",dataIndex:"statustext"},{
+		// @squid 下面添加了字符串 {text:"报餐明细", dataIndex:"subdate"},
+		columns:[{text:"申请人",dataIndex:"base_name",sortable:true},{text:"申请人部门",dataIndex:"base_deptname",sortable:true},{text:"单号",dataIndex:"sericnum"},{text:"报餐类型",dataIndex:"bill_type"},{text:"申请日期",dataIndex:"applydt"},{text:"操作人",dataIndex:"optname"},{text:"报餐明细", dataIndex:"subdate"},{text:"状态",dataIndex:"statustext"},{
 			text:'',dataIndex:'caozuo',callback:'opegs{rand}'
 		}],
 		itemdblclick:function(){
