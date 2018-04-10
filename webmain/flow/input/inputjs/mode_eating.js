@@ -29,10 +29,13 @@ function initbodys(){
 	$('input[name=end_date]').attr('onclick', '');
 
 	/** @squid 2018年4月9日11:49:29 初始化第一个子表报餐日期的数值，默认为明天 */
-	let tomorrow = getDateStr(1);
-	$('#tablesub0>tbody>tr:eq(1)>td:eq(1)>input').val(tomorrow);
-	$('input[name=begin_date]').val(tomorrow);
-	$('input[name=end_date]').val(tomorrow);
+	// 当全局变量ismobile 为true的时候才初始化
+	if (ismobile) {
+		let tomorrow = getDateStr(1);
+		$('#tablesub0>tbody>tr:eq(1)>td:eq(1)>input').val(tomorrow);
+		$('input[name=begin_date]').val(tomorrow);
+		$('input[name=end_date]').val(tomorrow);
+	}
 
     //新增
     if(id<=0){    	

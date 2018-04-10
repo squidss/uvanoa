@@ -217,6 +217,8 @@ var myScroll=false,yy={
 				if(url!='add')amod=url.replace('add_','');
 				url='index.php?a=lum&m=input&d=flow&num='+amod+'&show=we';
 			}
+			/** @squid 2018年4月10日10:32:57 这里增加一个加载中的效果，用于减轻用户等待的焦躁心情 */
+			js.wx.load('努力加载中...');
 			js.location(url);
 		}
 		/** @squid 加入菜单类型为2的打开toast操作 */
