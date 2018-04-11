@@ -53,9 +53,11 @@ function initbodys(){
 		$("#tablesub0").find("tr").each(function(){
 			if(rowindex>1){
 				var tdNewArr = $(this).children();
-				tdNewArr.eq(2).find("input[type='checkbox']").attr("disabled",true)					
-				tdNewArr.eq(3).find("input[type='checkbox']").attr("disabled",true)	
-				tdNewArr.eq(1).find("input").attr("disabled",true)						
+				tdNewArr.eq(1).find("input").attr("disabled",true)
+				if (!isEditable(tdNewArr.eq(1).find("input"))) { // 如果不可编辑，才设置不可用
+					tdNewArr.eq(2).find("input[type='checkbox']").attr("disabled",true)					
+					tdNewArr.eq(3).find("input[type='checkbox']").attr("disabled",true)	
+				}
 			}
 		});
 
@@ -627,4 +629,23 @@ function changeStartAndEnd() {
 function isInArray(arr, val) {
 	var tempStr = ',' + arr.join(',') + ',';
 	return tempStr.indexOf(',' + val + ',') != -1;
+}
+
+/** @squid 2018年4月11日10:07:27 判断子表是否可以编辑 */
+function isEditable(inputNode) {
+	let today       = getDateStr(0), // 今天
+		tomorrow    = getDateStr(1), // 明天
+		date        = new Date(),
+		localOffset = date.getTimezoneOffset() * 60, // 时区偏差
+		now         = (Date.parse(date) / 1000), // 当前时间戳
+		todayNinePm = (Date.parse(today) / 1000) + localOffset + (60 * 60 * 21); // 当天晚上9点
+	
+	if (today >= inputNode.val()) {
+		return false; // 今天或者之前的不可修改
+	}
+	if (tomorrow == inputNode.val() && now > todayNinePm) { // 如果输入框日期等于明天,判断当前时间是否已经超过9点
+		return false; // 明天的不可修改
+	}
+
+	return true; // 如果上面两个条件都不满足，那么可以编辑
 }

@@ -26,50 +26,54 @@ class mode_eatingClassAction extends inputAction{
 			$canTomorrow = true;
 		}
 		
-		$userDate = [];
-		foreach ($data as $item) {
-			if ($now >= $item['eatingdate']) { // 如果报餐日期小于今天
-				return '报餐日期必须大于今天' . $item['eatingdate'];
+		if (!$id) { // 只有id为0的时候才进行下面的判断
+			$userDate = [];
+			foreach ($data as $item) {
+				if ($now >= $item['eatingdate']) { // 如果报餐日期小于今天
+					return '报餐日期必须大于今天' . $item['eatingdate'];
+				}
+				if ($item['lunch'] == '0' && $item['dinner'] == '0') { // 如果日期没有选择午餐和晚餐
+					return $item['eatingdate'] . '【午餐】、【晚餐】至少选择一项！';
+				}
+				if (!$canTomorrow && date("Y-m-d",strtotime("+1 day")) == $item['eatingdate']) { // 如果时间已经大于9点并且明天的日期存在于子表中
+					return '已经超过21:00，不能报明天' . $item['eatingdate'] . '的餐';
+				}
+				$userDate[] = $item['eatingdate']; 
 			}
-			if ($item['lunch'] == '0' && $item['dinner'] == '0') { // 如果日期没有选择午餐和晚餐
-				return $item['eatingdate'] . '【午餐】、【晚餐】至少选择一项！';
-			}
-			if (!$canTomorrow && date("Y-m-d",strtotime("+1 day")) == $item['eatingdate']) { // 如果时间已经大于9点并且明天的日期存在于子表中
-				return '已经超过21:00，不能报明天' . $item['eatingdate'] . '的餐';
-			}
-			$userDate[] = $item['eatingdate']; 
-		}
-		
-		$this->sqFlow = m('flow:eating');
-		$dbData = $this->sqFlow->getUserEatingDate($now); // 获得数据库当中今天和比今天晚的报餐信息
-		
-		$hasLunchOrDinner = $this->sqFlow->checkLunchOrDinner($data, $dbData);
-		if (!isempt($hasLunchOrDinner)) return $hasLunchOrDinner;
-		
-		/** 检查完之后先保存子表的信息，并且将子表已经保存的信息删除，unset($_POST[''])，让之后的保存子表没有该行 */
-		$updateDbData = $this->getUpdateData(0, $dbData);
-		
-		if (!isempt($updateDbData)) { // 如果有需要更新的
-			foreach ($updateDbData as &$item) {
-				foreach ($dbData as $dbItem) {
-					if($dbItem['eating_date'] == $item['eatingdate']) {
-						if (!$item['lunch'])   unset($item['lunch']);
-						if (!$item['dinner'])  unset($item['dinner']);
-						$this->sqFlow->updateSub($item, "`id` = ". $dbItem['sub_id']);
+			
+			$this->sqFlow = m('flow:eating');
+			$dbData = $this->sqFlow->getUserEatingDate($now); // 获得数据库当中今天和比今天晚的报餐信息
+			
+			$hasLunchOrDinner = $this->sqFlow->checkLunchOrDinner($data, $dbData);
+			if (!isempt($hasLunchOrDinner)) return $hasLunchOrDinner;
+			
+			/** 检查完之后先保存子表的信息，并且将子表已经保存的信息删除，unset($_POST[''])，让之后的保存子表没有该行 */
+			$updateDbData = $this->getUpdateData(0, $dbData);
+			
+			if (!isempt($updateDbData)) { // 如果有需要更新的
+				foreach ($updateDbData as &$item) {
+					foreach ($dbData as $dbItem) {
+						if($dbItem['eating_date'] == $item['eatingdate']) {
+							if (!$item['lunch'])   unset($item['lunch']);
+							if (!$item['dinner'])  unset($item['dinner']);
+							$this->sqFlow->updateSub($item, "`id` = ". $dbItem['sub_id']);
+						}
 					}
 				}
 			}
+			
+			/** squid 2018年4月8日15:29:17 检查是否需要新加单据，如果不用，直接在这里返回一个成功信息，不让他走下面的保存单据流程 */
+			$dbDate = [];
+			foreach ($dbData as $item) {
+				$dbDate[] = $item['eating_date'];
+			}
+			$diffArr = array_diff($userDate, $dbDate); // 判断是否需要新建单据的差集，如果有差集，则要建一张新的单据
+			if (isempt($diffArr)) backmsg('', '新增成功');
+			
+			return ''; // @squid test
+		} else { // @squid 2018年4月11日11:17:34  修改的动作应该在这里执行
+			return ''; // 由于修改的话，现在只有PC端能打开表单修改，已经限制了日期不能改动，那么直接让其修改午餐和晚餐数据即可
 		}
-		
-		/** squid 2018年4月8日15:29:17 检查是否需要新加单据，如果不用，直接在这里返回一个成功信息，不让他走下面的保存单据流程 */
-		$dbDate = [];
-		foreach ($dbData as $item) {
-			$dbDate[] = $item['eating_date'];
-		}
-		$diffArr = array_diff($userDate, $dbDate); // 判断是否需要新建单据的差集，如果有差集，则要建一张新的单据
-		if (isempt($diffArr)) backmsg('', '新增成功');
-		
-		return ''; // @squid test
 		/** squid end */
 		
 		if(count($data)==0)return '至少要有一行记录';

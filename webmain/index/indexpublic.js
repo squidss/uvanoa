@@ -178,7 +178,6 @@ function optmenuclass(o1,num,id,obj,mname,oi, cola){
 		openinput(this.modename,this.modenum,this.mid, this.callbackstr);
 	};
 	this.showmenuclick=function(d){
-		console.log(d); // squid test
 		d.num=this.modenum;d.mid=this.id;
 		d.modenum = this.modenum;
 		var lx = d.lx;if(!lx)lx=0;
@@ -269,7 +268,6 @@ function optmenuclass(o1,num,id,obj,mname,oi, cola){
 		this.showmenuclicks(d,sm);
 	};
 	this.showmenuclicks=function(d,sm){
-		console.log(d); // squid test
 		if(!sm)sm='';
 		d.sm = sm;
 		for(var i in d)if(d[i]==null)d[i]='';
