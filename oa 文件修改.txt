@@ -83,3 +83,9 @@
 	2018年4月10日15:14:02 model/flow/eatingModel.php 为每张单据添加子表的详细信息
 	2018年4月10日10:32:57 we/ying/ying.js 这里增加一个加载中的效果，用于减轻用户等待的焦躁心情，但由于跳转之后这个并不会消除，所以加一个定时器 */  
 	2018年4月10日09:10:21 we/ying/ying.js 对象yy的属性，用于管理是否有打开过sq_toast  
+
+16. 2018年4月11日11:23:46 flow/input/inputjs/mode_eating.js 置空操作按钮
+	2018年4月11日10:23:55 flow/input/inputjs/mode_eating.js 检查input框是否不可以编辑，如果不可编辑，才设置不可用
+	2018年4月11日10:07:27 flow/input/inputjs/mode_eating.js 判断子表是否可以编辑
+	2018年4月11日11:17:34 flow/input/mode_eatingAction.php 修改的动作应该在这里执行
+	2018年4月11日09:52:44 model/flow/eatingModel.php 根据子表信息自动得出开始和结束日期
