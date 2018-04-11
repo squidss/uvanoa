@@ -272,3 +272,26 @@ function utf8dump($val) {
 		return;
 	}
 }
+
+/**
+ * @author squid 友好输出
+ * @param unknown $var 需要输出的变量
+ */
+function dump($var) {
+	ob_start();
+	var_dump($var);
+	$output = preg_replace('/\]\=\>\n(\s+)/m', '] => ', ob_get_clean());
+	
+	if (PHP_SAPI == 'cli') {
+		$output = PHP_EOL . $label . $output . PHP_EOL;
+	} else {
+		if (!extension_loaded('xdebug')) {
+			$output = htmlspecialchars($output, ENT_SUBSTITUTE);
+		}
+		
+		$output = '<pre>' . $output . '</pre>';
+	}
+	
+	echo($output);
+	return;
+}
