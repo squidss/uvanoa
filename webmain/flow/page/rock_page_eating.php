@@ -195,7 +195,7 @@ $(document).ready(function(){
 		fanye:true,modenum:modenum,modename:modename,statuschange:false,tablename:jm.base64decode('ZWF0aW5n'),
 		url:c.storeurl(),storeafteraction:'storeaftershow',storebeforeaction:'storebeforeshow',
 		params:{atype:atype},
-		// @squid 下面添加了字符串 {text:"报餐明细", dataIndex:"subdate"},
+		// @squid 2018年4月10日16:23:08 下面添加了字符串 {text:"报餐明细", dataIndex:"subdate"},
 		columns:[{text:"申请人",dataIndex:"base_name",sortable:true},{text:"申请人部门",dataIndex:"base_deptname",sortable:true},{text:"单号",dataIndex:"sericnum"},{text:"报餐类型",dataIndex:"bill_type"},{text:"申请日期",dataIndex:"applydt"},{text:"操作人",dataIndex:"optname"},{text:"报餐明细", dataIndex:"subdate"},{text:"状态",dataIndex:"statustext"},{
 			text:'',dataIndex:'caozuo',callback:'opegs{rand}'
 		}],

@@ -76,3 +76,10 @@
 	2018年4月9日09:41:09 flow/input/inputjs/mode_eating.js 为子表的报餐日期加上一个改变事件，发生改变的时候改变主表的开始和结束日期
 	2018年4月9日13:45:08 flow/input/inputjs/mode_eating.js 检查数组中是否有重复值
 	2018年4月9日09:05:11 model/flow/eatingModel.php 判断是否为取消报餐日期的前一天21:00  
+	
+15. 2018年4月10日16:23:08 flow/page/rock_page_eating.php 下面加入本字符串 {"name":"\u62a5\u9910\u660e\u7ec6", "fields":"subdate"}, 和 subdate, 用于列表页中显示对应的字段
+	下面添加了字符串 {text:"报餐明细", dataIndex:"subdate"},
+	2018年4月10日16:42:17 model/flow/eatingModel.php 复写flowrsreplace方法，返回一个带有子表数据的数据到主表记录里面 
+	2018年4月10日15:14:02 model/flow/eatingModel.php 为每张单据添加子表的详细信息
+	2018年4月10日10:32:57 we/ying/ying.js 这里增加一个加载中的效果，用于减轻用户等待的焦躁心情，但由于跳转之后这个并不会消除，所以加一个定时器 */  
+	2018年4月10日09:10:21 we/ying/ying.js 对象yy的属性，用于管理是否有打开过sq_toast  
