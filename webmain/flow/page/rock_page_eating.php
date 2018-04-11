@@ -1,9 +1,9 @@
 <?php
 /**
-*	模块：eating.报餐，
-*	说明：自定义区域内可写您想要的代码，模块列表页面，生成分为2块
-*	来源：流程模块→表单元素管理→[模块.报餐]→生成列表页
-*/
+ *	模块：eating.报餐，
+ *	说明：自定义区域内可写您想要的代码，模块列表页面，生成分为2块
+ *	来源：流程模块→表单元素管理→[模块.报餐]→生成列表页
+ */
 defined('HOST') or die ('not access');
 ?>
 <script>
@@ -241,6 +241,7 @@ $(document).ready(function(){
 <style>
 	.sq_sub_table {width: 100%;}
 	.sq_sub_header {border-bottom: 1px solid #CCC;}
+	.sq_sub_header th {text-align: center;}
 	.sq_sub_table tr {text-align: center;}
 </style>
 <!-- @squid CSS end -->

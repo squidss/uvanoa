@@ -178,7 +178,9 @@ class flow_eatingClassModel extends flowModel
     				'applydt'      => $now,
     				'bill_type'    => '标准报餐单',
     				'bill_no'      => $this->getBillNo(),
-    				'trustee_name' => $this->adminname
+    				'trustee_name' => $this->adminname,
+    				'begin_date'   => min($subTableDate), // @squid 2018年4月11日09:52:44 自动得出开始和结束日期
+    				'end_date'     => max($subTableDate)
     		];
     		$success = $this->insert($saveArr);
     		if (!$success) return ['success' => false, 'msg' => $this->db->error()]; // 如果新增记录失败，直接返回
@@ -235,7 +237,7 @@ class flow_eatingClassModel extends flowModel
     	// @squid 2018年4月9日09:05:11 判断是否为取消报餐日期的前一天21:00
     	$leastDay = $this->sqGetAll($where, 'xinhu_eatingitem', 'eatingdate', 'eatingdate ASC', '1'); // 这个是一个数组，然后取得第一行的数据
     	$yesterdayNinePm = strtotime($leastDay[0]['eatingdate']) - 60 * 60 * 3; // 减少3个小时，当天
-    	if (time() > $yesterdayNinePm) return ['success' => false, 'msg' => '已经超过21:00，不能取消明天的报餐！'];
+    	if (time() > $yesterdayNinePm) return ['success' => false, 'msg' => '已经超过选择日期前一天的21:00，不能取消该日期的报餐！'];
     	
     	switch ($type) {
     		case 'lunch':
