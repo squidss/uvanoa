@@ -227,12 +227,12 @@ class flow_eatingClassModel extends flowModel
     
     /**
      * @squid 2018年4月4日10:49:57 根据id跟新子表报餐的情况
-     * @param unknown $cancleId
+     * @param unknown $cancelId 选中的取消id
      */
-    public function cancelEating($cancleId, $type) {
+    public function cancelEating($cancelId, $type) {
     	$typeStr = ($type == 'lunch' ? '午餐' : ($type == 'dinner' ? '晚餐' : '全天'));
     	
-    	$where = "id IN ($cancleId)";
+    	$where = "id IN ($cancelId)";
     	
     	// @squid 2018年4月9日09:05:11 判断是否为取消报餐日期的前一天21:00
     	$leastDay = $this->sqGetAll($where, 'xinhu_eatingitem', 'eatingdate', 'eatingdate ASC', '1'); // 这个是一个数组，然后取得第一行的数据
