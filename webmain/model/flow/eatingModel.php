@@ -62,7 +62,7 @@ class flow_eatingClassModel extends flowModel
     	$where  = 'mid = ' . $eatingId;
     	$fields = 'id, eatingdate, lunch, dinner';
     	$subDate = $this->db->getrows($table, $where, $fields, 'sort');
-    	$eatingdate = '<table style="width: 100%;"><tr style="border-bottom: 1px solid #CCC;"><th>日期</th><th>午餐</th><th>晚餐</th></tr>';
+    	$eatingdate = '<table class="sq_sub_table"><tr class="sq_sub_header"><th>日期</th><th>午餐</th><th>晚餐</th></tr>';
     	foreach ($subDate as $k => $v) {
     		$eatingdate .= '<tr><td>' . $v['eatingdate'] . '</td>';
     		$eatingdate .= '<td>' . ($v['lunch']  == 1 ? '是' : '否') . '</td>';

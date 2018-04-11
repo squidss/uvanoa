@@ -237,6 +237,13 @@ $(document).ready(function(){
 });
 </script>
 <!--SCRIPTend-->
+<!-- @squid CSS start -->
+<style>
+	.sq_sub_table {width: 100%;}
+	.sq_sub_header {border-bottom: 1px solid #CCC;}
+	.sq_sub_table tr {text-align: center;}
+</style>
+<!-- @squid CSS end -->
 <!--HTMLstart-->
 <div>
 	<table width="100%">
