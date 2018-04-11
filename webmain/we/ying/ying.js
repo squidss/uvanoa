@@ -217,8 +217,11 @@ var myScroll=false,yy={
 				if(url!='add')amod=url.replace('add_','');
 				url='index.php?a=lum&m=input&d=flow&num='+amod+'&show=we';
 			}
-			/** @squid 2018年4月10日10:32:57 这里增加一个加载中的效果，用于减轻用户等待的焦躁心情 */
+			/** @squid 2018年4月10日10:32:57 这里增加一个加载中的效果，用于减轻用户等待的焦躁心情，但由于跳转之后这个并不会消除，所以加一个定时器 */
 			js.wx.load('努力加载中...');
+			setInterval(function(){
+				$('#loadingToastsss').remove();
+			}, 1500);
 			js.location(url);
 		}
 		/** @squid 加入菜单类型为2的打开toast操作 */
@@ -231,7 +234,7 @@ var myScroll=false,yy={
 			if (selectId == '') {
 				js.msg('msg', '不能没有勾选项');
 			} else {
-				js.ajax('agent', 'eating', {'sqAction': 'cancle', 'cancleId': selectId, 'type': a.url}, function(data){
+				js.ajax('agent', 'eating', {'sqAction': 'cancel', 'cancelId': selectId, 'type': a.url}, function(data){
 					if (data.msg) {
 						js.msg('ok', data.msg, 3);
 					}
@@ -492,9 +495,9 @@ var myScroll=false,yy={
 		
 		// toastStyle 放到css 里面方便统一管理吧
 		var toastStyle    =  '<style>\n' +
-							'	.sq_toast_mask {position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: #7b7979b8; z-index: 998;}\n' +
+							'	.sq_toast_mask {position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: #313131b8; z-index: 998;}\n' +
 							'	.sq_toast {position: absolute; width: 90%; border-radius: 5px; margin: auto; left: ' + left + 'px; top: ' + top + 'px; background: #337ab7;}\n' +
-							'	.sq_toast_title {text-align: center; letter-space: 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid #ccc; height: 30px; line-height: 30px; color: white;}\n' +
+							'	.sq_toast_title {text-align: center; letter-spacing: 1px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom: 1px solid #ccc; height: 30px; line-height: 30px; color: white;}\n' +
 							'	ul {margin: 0 0; padding: 0 0;}\n' +
 							'	ul>li {list-style-type: none; float: left; text-align: center;height: 40px; line-height: 40px; color: white;}\n' +
 							'	ul>li:first-child {border-bottom-left-radius: 5px;}\n' +
@@ -553,8 +556,8 @@ var myScroll=false,yy={
 			this.showobj.html('');
 			this.data=[];
 		}
-		s += '<table id="eating"><thead><tr>' +
-			'<th style="width: 20%;"><input type="checkbox" id="selectAll" class="mui-checkbox" onclick="yy.selectAll(this);"/><label for="selectAll">全选</label></th>' +
+		s += '<table id="eating"><thead><tr style="height: 30px;">' +
+			'<th style="width: 20%;"><input type="checkbox" id="selectAll" class="mui-checkbox" onclick="yy.selectAll(this);" style="vertical-align: middle;"/><label for="selectAll">全选</label></th>' +
 			'<th style="display: none;">表单id</th>' +
 			'<th style="display: none;">表单类型</th>' +
 			'<th style="display: none;">表单编号</th>' +
@@ -572,8 +575,8 @@ var myScroll=false,yy={
 		for(i=0;i<len;i++){
 			d=ret.rows[i];
 			
-			rows += '<tr onclick="yy.selectThis(this);">';
-			rows += '<td><input type="checkbox" id=""  class="mui-checkbox" onclick="event.stopPropagation();" subid="' + d.sub_id + '"/></td>'
+			rows += '<tr onclick="yy.selectThis(this);" style="height: 30px;">';
+			rows += '<td><input type="checkbox" id=""  class="mui-checkbox" onclick="event.stopPropagation();" subid="' + d.sub_id + '" style="vertical-align: middle;"/></td>'
 			rows += '<td style="display: none;">' + d.bill_id + '</td>';
 			rows += '<td style="display: none;">' + d.bill_type + '</td>';
 			rows += '<td style="display: none;">' + d.sericnum + '</td>';

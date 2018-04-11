@@ -37,10 +37,10 @@ class agentClassAction extends apiAction
 		$sqAction = $this->request('sqAction', 'declare');
 		
 		switch ($sqAction) {
-			case 'cancle':
-				$cancleId = $this->request('cancleId', '');
+			case 'cancel':
+				$cancelId = $this->request('cancelId', '');
 				$type     = $this->request('type');
-				$arr = m('flow:eating')->cancelEating($cancleId, $type);
+				$arr = m('flow:eating')->cancelEating($cancelId, $type);
 				break;
 			default:
 				$menuNum = $this->request('menuNum', '');
