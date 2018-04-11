@@ -54,7 +54,8 @@ function initbodys(){
 			if(rowindex>1){
 				var tdNewArr = $(this).children();
 				tdNewArr.eq(1).find("input").attr("disabled",true)
-				if (!isEditable(tdNewArr.eq(1).find("input"))) { // 如果不可编辑，才设置不可用
+				tdNewArr.eq(4).html(''); // @squid 2018年4月11日11:23:46 置空操作按钮
+				if (!isEditable(tdNewArr.eq(1).find("input"))) { // @squid 2018年4月11日10:23:55 如果不可编辑，才设置不可用
 					tdNewArr.eq(2).find("input[type='checkbox']").attr("disabled",true)					
 					tdNewArr.eq(3).find("input[type='checkbox']").attr("disabled",true)	
 				}
